@@ -20,7 +20,7 @@ This directory contains Locust test scripts for performance testing the API endp
 
 ## Directory Structure
 
-The Locust scripts are located in the `tests/locust` directory:
+The Locust scripts are located in the `./locust` directory:
 
 ```
 tests/locust/
