@@ -314,23 +314,3 @@ To test all sections simultaneously:
        ```logql
        {job="fastapi"} |= "ERROR"
        ```
-
-## Notes
-- **Performance KPIs** (Section 7.2):
-  - Ensure p95 response time < 500ms and error rate < 0.1%.
-  - Adjust test parameters (e.g., `--users`, `--run-time`) to meet load, stress, or soak testing goals.
-- **Logging** (Section 9.2):
-  - Monitor test results in Grafana Loki:
-    ```logql
-    {job="fastapi"} |= "/<section>" | json
-    ```
-  - Set alerts for high error rates:
-    ```logql
-    rate({job="fastapi"} |= "ERROR"[5m]) > 0.01
-    ```
-- **Missing Sections**:
-  - The `risk_analyzer` section is not yet included. Provide its API code to create a corresponding Locust script.
-- **Extending Tests**:
-  - To test POST/PUT/DELETE endpoints, modify scripts to include additional tasks. Contact the test author for assistance.
-
-For further assistance, contact the QA team or refer to the system documentation (Sections 5, 6, 7, 9).
